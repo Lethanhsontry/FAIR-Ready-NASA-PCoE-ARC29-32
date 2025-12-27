@@ -1,0 +1,62 @@
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as follows."
+
+title: "FAIR-Ready Lithium-Ion Battery Aging Dataset (NASA PCoE ARC 29–32)"
+
+authors:
+  - family-names: Le
+    given-names: Thanh Son
+    roles:
+      - author
+    affiliation:
+      - School of Electrical and Electronic Engineering, Vietnam
+
+  - family-names: Nguyen
+    given-names: Duc Tuyen
+    orcid: "0000-0001-7107-3897"
+    roles:
+      - supervisor
+    affiliation:
+      - School of Electrical and Electronic Engineering, Vietnam
+
+  - family-names: Nguyen
+    given-names: Phi Le
+    orcid: "0000-0001-6547-7641"
+    roles:
+      - supervisor
+    affiliation:
+      - School of Information and Communication Technology, Vietnam
+
+  - family-names: Nguyen
+    given-names: Trong Thanh
+    roles:
+      - contributor
+    affiliation:
+      - School of Electrical and Electronic Engineering, Vietnam
+
+abstract: >
+  This dataset provides a FAIR-ready reorganization and standardization of
+  lithium-ion battery aging measurements originally released by the NASA Ames
+  Prognostics Center of Excellence (PCoE). The dataset focuses on the ARC 29–32
+  subset, covering four cells (B0029–B0032) with charge, discharge, and
+  electrochemical impedance spectroscopy data. The contribution of this work
+  lies in improving data findability, accessibility, interoperability, and
+  reusability through structured formats and rich metadata, while preserving
+  the original scientific content and legal status of the NASA data.
+
+keywords:
+  - lithium-ion batteries
+  - battery aging
+  - NASA PCoE
+  - FAIR data
+  - prognostics
+  - remaining useful life
+
+license: CC-BY-4.0
+
+version: 0.1.0
+
+repository-code: https://github.com/Lethanhsontry/FAIR-Ready-NASA-PCoE-ARC29-32
+url: https://github.com/Lethanhsontry/FAIR-Ready-NASA-PCoE-ARC29-32
+
+date-released: 2025-01-01
