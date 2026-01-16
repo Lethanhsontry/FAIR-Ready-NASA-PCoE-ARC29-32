@@ -1,0 +1,73 @@
+dataset_description:
+  title: >
+    NASA PCoE Lithium-Ion Battery Aging Dataset – ARC 29–32 Subset
+
+  version: v0.1.0
+
+  description: >
+    This record describes FAIR-oriented curation artifacts derived from the NASA
+    Prognostics Center of Excellence (PCoE) Lithium-Ion Battery Aging ARC dataset,
+    focusing on cells B0029 to B0032 (ARC 29–32). The curation includes deterministic
+    extraction and tabular serialization into three Parquet tables (cycles,
+    measurements, and impedance), evidence-based physical sanity checks, and the
+    creation of machine-readable metadata (schema, variable dictionary, provenance,
+    and ontology alignment). No experimental data files are redistributed in this
+    repository.
+
+
+  keywords:
+    - lithium-ion battery
+    - battery aging
+    - experimental dataset
+    - NASA PCoE
+    - battery diagnostics
+
+  creators:
+    - name: Le Thanh Son
+      role: Data curation and metadata authoring
+
+  contributors:
+    - organization: NASA Prognostics Center of Excellence (PCoE)
+      role: Original data provider
+
+  temporal_coverage: Not specified
+
+  spatial_coverage: Laboratory environment
+
+  methodology: >
+    The source dataset originates from controlled laboratory experiments conducted
+    by NASA PCoE to study lithium-ion battery aging behavior. The raw MATLAB data
+    structures were inspected to identify hierarchical organization, cycle indexing,
+    operation types (charge, discharge, impedance), and available measurement fields.
+    The processed Parquet artifacts were then validated via evidence-based physical
+    sanity checks to verify plausibility and internal consistency of voltage, current,
+    temperature, capacity, and impedance signals.
+    
+    data_sources:
+      raw_files:
+        - B0029.mat
+        - B0030.mat
+        - B0031.mat
+        - B0032.mat
+      raw_data_format: MATLAB (.mat)
+      derived_artifacts:
+        - cycles_arc29_32.parquet
+        - measurements_arc29_32.parquet
+        - impedance_arc29_32.parquet
+      redistribution_note: >
+        The repository does not include or redistribute experimental data files.
+
+
+  processing_level: Deterministic ETL to Parquet, validation, and metadata documentation
+
+  license: >
+    The original experimental data are provided by NASA PCoE under the usage
+    conditions stated in the source documentation. This repository distributes
+    only curation metadata and software; these materials are licensed under the
+    repository LICENSE. No experimental data files are redistributed here.
+    
+    
+    notes:
+    - This description applies exclusively to dataset version v0.1.0.
+    - Subsequent dataset versions may include additional processing steps
+      and corresponding updated descriptions.

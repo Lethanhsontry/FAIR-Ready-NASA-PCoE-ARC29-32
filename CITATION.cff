@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this dataset, please cite it as follows."
+message: "If you use this FAIR-ready curation (scripts, metadata, and documentation), please cite it as follows."
 
 title: "FAIR-Ready Lithium-Ion Battery Aging Dataset (NASA PCoE ARC 29–32)"
 
@@ -35,9 +35,9 @@ authors:
       - School of Electrical and Electronic Engineering, Vietnam
 
 abstract: >
-  This dataset provides a FAIR-ready reorganization and standardization of
-  lithium-ion battery aging measurements originally released by the NASA Ames
-  Prognostics Center of Excellence (PCoE). The dataset focuses on the ARC 29–32
+  This repository provides FAIR-ready curation artifacts for the reorganization
+and standardization of lithium-ion battery aging measurements originally
+released by the NASA Ames Prognostics Center of Excellence (PCoE). The dataset focuses on the ARC 29–32
   subset, covering four cells (B0029–B0032) with charge, discharge, and
   electrochemical impedance spectroscopy data. The contribution of this work
   lies in improving data findability, accessibility, interoperability, and
@@ -59,4 +59,4 @@ version: 0.1.0
 repository-code: https://github.com/Lethanhsontry/FAIR-Ready-NASA-PCoE-ARC29-32
 url: https://github.com/Lethanhsontry/FAIR-Ready-NASA-PCoE-ARC29-32
 
-date-released: 2025-01-01
+date-released: 2026-01-16

@@ -1,0 +1,16 @@
+{
+  "discharge_samples":25404,
+  "unique_discharge_cycles":160,
+  "time_monotonicity_violations_allCells":0,
+  "impedance":{
+    "impedance_rows":9860,
+    "re_nonpos_count":0,
+    "rct_nonpos_count":0
+  },
+  "rep_cell":"B0029",
+  "rep_cycle_index":1,
+  "rep_cycle_samples":169,
+  "fig_capacity":"D:\\PythonProject\\scripts\\NewICGEA2026\\C_Physical Sanity Check\\sanity_outputs_parquet_evidence\\figures\\fig_capacity_fade_all_cells.png",
+  "fig_discharge":"D:\\PythonProject\\scripts\\NewICGEA2026\\C_Physical Sanity Check\\sanity_outputs_parquet_evidence\\figures\\fig_discharge_profile_B0029.png",
+  "table_summary_csv":"D:\\PythonProject\\scripts\\NewICGEA2026\\C_Physical Sanity Check\\sanity_outputs_parquet_evidence\\evidence\\table_physical_sanity_summary.csv"
+}

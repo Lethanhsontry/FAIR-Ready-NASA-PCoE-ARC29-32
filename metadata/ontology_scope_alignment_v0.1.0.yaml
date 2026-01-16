@@ -1,0 +1,97 @@
+ontology_scope_alignment:
+  version: v0.1.0
+
+  purpose: >
+    This document defines the scope, constraints, and alignment principles
+    for ontology mapping applied to the NASA PCoE Battery Aging ARC 29–32
+    subset. It serves as a binding specification for subsequent variable-level
+    ontology mapping and prevents speculative or unjustified semantic assignments.
+
+  evidence_basis:
+    - schema_design.yaml
+    - NASA PCoE README (ARC 29–32)
+    - Raw data inspection logs
+    - Physical sanity check analyses
+
+  ontologies_in_scope:
+    QUDT:
+      role: >
+        Authoritative ontology for physical units and quantity kinds.
+      usage_policy:
+        - Mandatory for all variables with confirmed physical units.
+        - Unit IRIs must be selected strictly based on NASA documentation.
+        - No inferred or assumed units are permitted.
+
+    BattINFO:
+      role: >
+        Domain ontology for battery systems, experimental cycles,
+        and electrochemical measurements.
+      usage_policy:
+        - Applied only when a one-to-one semantic correspondence
+          with NASA documentation is confirmed.
+        - No deep class hierarchy mapping is required at this stage.
+        - Parameters derived or estimated by NASA are mapped cautiously
+          or left unmapped if no canonical term exists.
+
+    BDF:
+      role: >
+        Supporting vocabulary for common battery data concepts.
+      usage_policy:
+        - Used selectively when variable names and semantics
+          directly match BDF definitions.
+        - Not mandatory and never enforced.
+
+  mapping_scope_by_table:
+    cycles:
+      semantic_entities:
+        - BatteryCell
+        - ExperimentalCycle
+        - OperationType
+      unit_mapping:
+        - ambient_temperature_C: DegreeCelsius (QUDT)
+      exclusions:
+        - Cycle-level time vectors are not mapped to absolute timestamps
+          due to MATLAB date vector representation.
+
+    measurements:
+      semantic_entities:
+        - Measurement
+        - ChargeOperation
+        - DischargeOperation
+      unit_mapping:
+        - Voltage: qudt:Volt
+        - Current: qudt:Ampere
+        - Temperature: qudt:DegreeCelsius
+        - Time: qudt:Second
+        - Capacity: qudt:AmpereHour
+      constraints:
+        - Charger-side and load-side measurements are treated
+          as distinct physical quantities.
+        - No derived performance metrics are introduced.
+
+    impedance:
+      semantic_entities:
+        - ElectrochemicalImpedanceMeasurement
+      unit_mapping:
+        - Current: Ampere
+        - Impedance: Ohm
+        - Ratio: Dimensionless
+      constraints:
+        - Estimated parameters (Re, Rct) are not reinterpreted
+          beyond their definitions in NASA documentation.
+
+  out_of_scope:
+    - FAIR maturity assessment
+    - Data transformation or ETL processes
+    - Derived health indicators (SoH, RUL)
+    - Predictive or analytical modeling
+
+  enforcement_rules:
+    - Any variable lacking explicit evidence from NASA documentation
+      must remain unmapped or marked as unknown.
+    - Ontology mappings defined in subsequent steps must comply
+      with this specification without exception.
+
+  notes:
+    - This document is valid only for dataset version v0.1.0.
+    - Updates require creation of a new versioned scope document.

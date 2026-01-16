@@ -1,0 +1,216 @@
+ontology_mapping_variables:
+  version: v0.1.0
+
+  curator_roles:
+    - data_curator
+    - metadata_author
+    - ontology_mapping_executor_non_interpretive
+
+  notes: >
+    This file documents non-interpretive semantic alignment of variables
+    to external vocabularies for machine readability. No ontology reasoning
+    or semantic inference is performed.
+
+  evidence_sources:
+    - schema_design.yaml
+    - NASA_PCoE_README_ARC_29_32
+    - raw_inspection_logs
+    - physical_sanity_checks
+
+  tables:
+
+    cycles:
+      ambient_temperature_C:
+        semantic_concept: qudt:Temperature
+        quantity_kind: qudt:ThermodynamicTemperature
+        unit: qudt:DegreeCelsius
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      operation_type:
+        semantic_concept: battinfo:OperationType
+        ontology_source: battinfo
+        derivation_status: recorded_by_original_provider
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      cycle_time:
+        semantic_concept: null
+        quantity_kind: null
+        unit: null
+        ontology_source: null
+        derivation_status: recorded_by_original_provider
+        mapping_status: unmapped
+        notes: >
+          Cycle-level time values are represented in a MATLAB-specific
+          relative format and are not mapped to absolute temporal concepts.
+
+    measurements:
+
+      voltage_measured_V:
+        semantic_concept: qudt:Voltage
+        quantity_kind: qudt:ElectricPotential
+        unit: qudt:Volt
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      current_measured_A:
+        semantic_concept: qudt:ElectricCurrent
+        quantity_kind: qudt:ElectricCurrent
+        unit: qudt:Ampere
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      temperature_measured_C:
+        semantic_concept: qudt:Temperature
+        quantity_kind: qudt:ThermodynamicTemperature
+        unit: qudt:DegreeCelsius
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      time_s:
+        semantic_concept: qudt:Time
+        quantity_kind: qudt:Time
+        unit: qudt:Second
+        ontology_source: qudt
+        derivation_status: recorded_by_original_provider
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      capacity_Ah:
+        semantic_concept: battinfo:DischargeCapacity
+        quantity_kind: qudt:ElectricCharge
+        unit: qudt:AmpereHour
+        ontology_source: battinfo
+        derivation_status: estimated_by_original_provider
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      current_load_A:
+        semantic_concept: qudt:ElectricCurrent
+        quantity_kind: qudt:ElectricCurrent
+        unit: qudt:Ampere
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      voltage_load_V:
+        semantic_concept: qudt:Voltage
+        quantity_kind: qudt:ElectricPotential
+        unit: qudt:Volt
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      current_charge_A:
+        semantic_concept: qudt:ElectricCurrent
+        quantity_kind: qudt:ElectricCurrent
+        unit: qudt:Ampere
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      voltage_charge_V:
+        semantic_concept: qudt:Voltage
+        quantity_kind: qudt:ElectricPotential
+        unit: qudt:Volt
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+    impedance:
+
+      sense_current:
+        semantic_concept: qudt:ElectricCurrent
+        quantity_kind: qudt:ElectricCurrent
+        unit: qudt:Ampere
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      battery_current:
+        semantic_concept: qudt:ElectricCurrent
+        quantity_kind: qudt:ElectricCurrent
+        unit: qudt:Ampere
+        ontology_source: qudt
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      battery_impedance:
+        semantic_concept: battinfo:ElectrochemicalImpedance
+        quantity_kind: qudt:ElectricalImpedance
+        unit: qudt:Ohm
+        ontology_source: battinfo
+        derivation_status: measured
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      rectified_impedance:
+        semantic_concept: null
+        quantity_kind: qudt:ElectricalImpedance
+        unit: qudt:Ohm
+        ontology_source: qudt
+        derivation_status: estimated_by_original_provider
+        mapping_status: partially_mapped
+        notes: >
+          Rectification procedure is defined by the original data provider;
+          no canonical BattINFO semantic concept is asserted.
+
+      current_ratio:
+        semantic_concept: null
+        quantity_kind: qudt:DimensionlessQuantity
+        unit: qudt:Unitless
+        ontology_source: qudt
+        derivation_status: estimated_by_original_provider
+        mapping_status: partially_mapped
+        notes: >
+          Ratio defined by the original data provider and treated as
+          dimensionless without further semantic interpretation.
+
+      Re_ohm:
+        semantic_concept: battinfo:ElectrolyteResistance
+        quantity_kind: qudt:ElectricalResistance
+        unit: qudt:Ohm
+        ontology_source: battinfo
+        derivation_status: estimated_by_original_provider
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32
+
+      Rct_ohm:
+        semantic_concept: battinfo:ChargeTransferResistance
+        quantity_kind: qudt:ElectricalResistance
+        unit: qudt:Ohm
+        ontology_source: battinfo
+        derivation_status: estimated_by_original_provider
+        mapping_status: mapped
+        evidence:
+          - NASA README ARC 29–32

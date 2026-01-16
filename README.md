@@ -55,8 +55,8 @@ This repository contains:
   (`metadata/`),
 - **Scripts** for data extraction, transformation, validation, and FAIR
   assessment (`scripts/`),
-- **Documentation** supporting reproducibility and academic reporting,
-  including materials prepared for ICGEA 2026 (`docs/`),
+- **Documentation** supporting reproducible research and academic peer review,
+  including materials prepared for peer-reviewed academic dissemination (`docs/`),
 - **Citation and licensing information** for the FAIR-ready contribution
   (`CITATION.cff`, `LICENSE`).
 
@@ -80,8 +80,7 @@ See the `LICENSE` file for full details.
 
 ## Citation
 
-If you use this FAIR-ready dataset or the materials provided in this
-repository, please cite it according to the instructions in the
+If you use this FAIR-ready curation or the materials provided in this repository, please cite it according to the instructions in the
 `CITATION.cff` file.
 
 Users are also expected to appropriately acknowledge the original NASA PCoE
@@ -99,6 +98,7 @@ This repository is intended for:
 It is **not** intended to serve as a primary data distribution platform for
 NASA PCoE experimental measurements.
 
+Additional documentation on data availability and the FAIR assessment of this FAIR-ready contribution is provided in the `docs/` directory.
 ---
 
 ## Contact

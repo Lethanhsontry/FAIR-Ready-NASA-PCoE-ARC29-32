@@ -1,0 +1,88 @@
+provenance:
+  dataset_version: v0.1.0
+
+  description: >
+    This provenance record documents the actions that have actually been
+    performed on the NASA PCoE Battery Aging ARC 29–32 subset for the
+    current dataset version. The scope of this version includes deterministic
+    extraction and tabular serialization into Parquet artifacts, evidence-based
+    physical sanity checks, and the creation of machine-readable metadata and
+    schema documentation. No modification, interpolation, or correction of
+    experimental measurements has been applied.
+  
+  
+  source_data:
+    origin: NASA Prognostics Center of Excellence (PCoE)
+    dataset_name: Battery Aging ARC (subset ARC 29–32)
+    raw_files:
+      - B0029.mat
+      - B0030.mat
+      - B0031.mat
+      - B0032.mat
+  source_note: >
+    The original MATLAB files are used as source inputs for curation
+    but are not included or redistributed in this repository.
+
+    data_format: MATLAB (.mat)
+    acquisition_method: Experimental laboratory measurements
+
+  processing_steps:
+    - step_name: Raw data structural inspection
+      description: >
+        Inspection of the hierarchical structure of the original MATLAB
+        files to identify cells, cycles, operation types, and available
+        measurement fields.
+      evidence: Python inspection logs and structural summaries
+
+    - step_name: Physical sanity checks
+      description: >
+        Verification of physical plausibility of voltage, current,
+        temperature, capacity, and impedance measurements based on
+        representative cycles.
+      evidence: Documented sanity check analyses
+
+    - step_name: Schema design
+      description: >
+        Design of table-level schemas for cycles, measurements, and
+        impedance data based strictly on observed raw data structures.
+      evidence: schema_design.yaml
+
+  data_transformation:
+    performed: false
+    description: >
+      No data transformation, preprocessing, cleaning, filtering, or
+      format conversion has been performed in this dataset version.
+
+  derived_variables:
+    performed: false
+    description: >
+      No derived variables or computed features have been created.
+      All variables correspond directly to fields present in the
+      original raw MATLAB data structures.
+
+  data_filtering:
+    performed: false
+    description: >
+      No data records have been filtered, removed, or excluded.
+      All raw data entries have been retained.
+
+  licensing:
+    description: >
+      The standardized dataset inherits the usage conditions and licensing
+      statements provided by the original NASA PCoE dataset documentation.
+      No additional license is imposed in this version.
+
+  contributors:
+    - name: Le Thanh Son
+      role:
+        - Data curation
+        - Metadata authoring
+      responsibility: >
+        Curation of dataset structure and authoring of metadata and
+        schema documentation. No responsibility is claimed for the
+        generation of the original experimental data.
+
+  notes:
+    - This provenance record is valid only for dataset version v0.1.0.
+    - Subsequent dataset versions will include updated provenance records
+      reflecting additional processing steps, if any.

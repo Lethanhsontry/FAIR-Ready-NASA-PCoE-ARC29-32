@@ -1,0 +1,165 @@
+variables_dictionary:
+
+  description: >
+    This file provides standardized definitions of all variables included
+    in the NASA PCoE Battery Aging ARC 29–32 standardized subset. Variable
+    names, data types, and descriptions are derived from direct inspection
+    of the original MATLAB (.mat) files and are organized according to the
+    designed table schemas.
+
+  tables:
+
+    cycles:
+      description: Cycle-level contextual variables.
+      variables:
+
+        cell_id:
+          dtype: string
+          description: Unique identifier of the battery cell (e.g., B0029–B0032).
+
+        cycle_index:
+          dtype: integer
+          description: Sequential index of the experimental cycle within a cell.
+
+        operation_type:
+          dtype: string
+          allowed_values: [charge, discharge, impedance]
+          description: Type of experimental operation performed in the cycle.
+
+        ambient_temperature_C:
+          dtype: float
+          unit: degree_Celsius
+          description: Ambient temperature during the experimental cycle.
+
+        cycle_time:
+          dtype: float
+          unit: second
+          description: Cycle-level time information as recorded in the raw data.
+
+    measurements:
+      description: Time-series measurement variables for charge and discharge cycles.
+      variables:
+
+        cell_id:
+          dtype: string
+          description: Unique identifier of the battery cell.
+
+        cycle_index:
+          dtype: integer
+          description: Index of the cycle associated with the measurements.
+
+        operation_type:
+          dtype: string
+          allowed_values: [charge, discharge]
+          description: Operation type corresponding to the measurement series.
+
+        t_index:
+          dtype: integer
+          description: Index of the sample within the time-series vector.
+
+        time_s:
+          dtype: float
+          unit: second
+          description: Time stamp of the measurement sample.
+
+        voltage_measured_V:
+          dtype: float
+          unit: volt
+          description: Measured terminal voltage of the battery.
+
+        current_measured_A:
+          dtype: float
+          unit: ampere
+          description: Measured current flowing through the battery.
+
+        temperature_measured_C:
+          dtype: float
+          unit: degree_Celsius
+          description: Measured temperature value recorded during battery operation.
+                
+        current_charge_A:
+          dtype: float
+          unit: ampere
+          nullable: true
+          description: Charging current during charge cycles.
+
+        voltage_charge_V:
+          dtype: float
+          unit: volt
+          nullable: true
+          description: Charging voltage during charge cycles.
+
+        current_load_A:
+          dtype: float
+          unit: ampere
+          nullable: true
+          description: Load current during discharge cycles.
+
+        voltage_load_V:
+          dtype: float
+          unit: volt
+          nullable: true
+          description: Load voltage during discharge cycles.
+
+        capacity_Ah:
+          dtype: float
+          unit: ampere_hour
+          nullable: true
+          description: Discharge capacity value recorded for a discharge cycle.
+        
+    
+    impedance:
+      description: Frequency-domain electrochemical impedance spectroscopy variables.
+      variables:
+
+        cell_id:
+          dtype: string
+          description: Unique identifier of the battery cell.
+
+        cycle_index:
+          dtype: integer
+          description: Index of the impedance measurement cycle.
+
+        f_index:
+          dtype: integer
+          description: Index of the frequency point within the impedance spectrum.
+
+        sense_current:
+          dtype: complex
+          unit: ampere
+          description: Complex-valued sensed current in EIS measurement.
+
+        battery_current:
+          dtype: complex
+          unit: ampere
+          description: Complex-valued battery current in EIS measurement.
+
+        current_ratio:
+          dtype: complex
+          unit: dimensionless
+          description: Ratio between sensed current and battery current.
+
+        battery_impedance:
+          dtype: complex
+          unit: ohm
+          description: Complex battery impedance.
+
+        rectified_impedance:
+          dtype: complex
+          unit: ohm
+          description: Rectified impedance derived from complex impedance.
+
+        Re_ohm:
+          dtype: float
+          unit: ohm
+          description: Ohmic resistance component of the battery.
+
+        Rct_ohm:
+          dtype: float
+          unit: ohm
+          description: Charge transfer resistance component of the battery.
+
+  notes:
+    - Variable definitions are based solely on raw data inspection.
+    - No derived features or inferred variables are included.
+    - Ontology mappings and controlled vocabularies are defined in later stages.

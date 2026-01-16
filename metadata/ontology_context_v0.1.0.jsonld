@@ -1,0 +1,104 @@
+{
+  "@context": {
+    "schema": "https://schema.org/",
+    "qudt": "https://qudt.org/schema/qudt/",
+    "unit": "https://qudt.org/vocab/unit/",
+    "quantitykind": "https://qudt.org/vocab/quantitykind/",
+    "battinfo": "https://w3id.org/battinfo/ontology#",
+
+    "BatteryCell": "battinfo:BatteryCell",
+    "ExperimentalCycle": "battinfo:ExperimentalCycle",
+    "OperationType": "battinfo:OperationType",
+    "ElectrochemicalImpedanceMeasurement": "battinfo:ElectrochemicalImpedanceMeasurement",
+
+    "ambient_temperature_C": {
+      "@id": "qudt:Temperature",
+      "@type": "quantitykind:ThermodynamicTemperature",
+      "qudt:unit": "unit:DegreeCelsius"
+    },
+
+    "voltage_measured_V": {
+      "@id": "qudt:Voltage",
+      "@type": "quantitykind:ElectricPotential",
+      "qudt:unit": "unit:Volt"
+    },
+
+    "current_measured_A": {
+      "@id": "qudt:ElectricCurrent",
+      "@type": "quantitykind:ElectricCurrent",
+      "qudt:unit": "unit:Ampere"
+    },
+
+    "temperature_measured_C": {
+      "@id": "qudt:Temperature",
+      "@type": "quantitykind:ThermodynamicTemperature",
+      "qudt:unit": "unit:DegreeCelsius"
+    },
+
+    "time_s": {
+      "@id": "qudt:Time",
+      "@type": "quantitykind:Time",
+      "qudt:unit": "unit:Second"
+    },
+
+    "capacity_Ah": {
+      "@id": "battinfo:DischargeCapacity",
+      "@type": "quantitykind:ElectricCharge",
+      "qudt:unit": "unit:AmpereHour"
+    },
+
+    "voltage_load_V": {
+      "@id": "qudt:Voltage",
+      "@type": "quantitykind:ElectricPotential",
+      "qudt:unit": "unit:Volt"
+    },
+
+    "current_load_A": {
+      "@id": "qudt:ElectricCurrent",
+      "@type": "quantitykind:ElectricCurrent",
+      "qudt:unit": "unit:Ampere"
+    },
+
+    "voltage_charge_V": {
+      "@id": "qudt:Voltage",
+      "@type": "quantitykind:ElectricPotential",
+      "qudt:unit": "unit:Volt"
+    },
+
+    "current_charge_A": {
+      "@id": "qudt:ElectricCurrent",
+      "@type": "quantitykind:ElectricCurrent",
+      "qudt:unit": "unit:Ampere"
+    },
+
+    "battery_impedance": {
+      "@id": "battinfo:ElectrochemicalImpedance",
+      "@type": "quantitykind:ElectricalImpedance",
+      "qudt:unit": "unit:Ohm"
+    },
+
+    "rectified_impedance": {
+      "@id": "qudt:ElectricalImpedance",
+      "@type": "quantitykind:ElectricalImpedance",
+      "qudt:unit": "unit:Ohm"
+    },
+
+    "Re_ohm": {
+      "@id": "battinfo:ElectrolyteResistance",
+      "@type": "quantitykind:ElectricalResistance",
+      "qudt:unit": "unit:Ohm"
+    },
+
+    "Rct_ohm": {
+      "@id": "battinfo:ChargeTransferResistance",
+      "@type": "quantitykind:ElectricalResistance",
+      "qudt:unit": "unit:Ohm"
+    },
+
+    "current_ratio": {
+      "@id": "quantitykind:DimensionlessQuantity",
+      "@type": "quantitykind:DimensionlessQuantity",
+      "qudt:unit": "unit:Unitless"
+    }
+  }
+}

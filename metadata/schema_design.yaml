@@ -1,0 +1,176 @@
+schema_design:
+  purpose: >
+    This document defines the table schemas for FAIR-oriented,
+    column-oriented artifacts derived from the NASA PCoE
+    Battery Aging ARC 29–32 subset. The schemas are derived from
+    direct inspection of the original MATLAB (.mat) data files
+    and describe the structural organization of the finalized
+    Parquet tables used for validation and metadata documentation.
+    No experimental data values are stored in this file.
+    
+    
+    evidence_source:
+    raw_data_format: MATLAB (.mat)
+    inspected_files:
+      - B0029.mat
+      - B0030.mat
+      - B0031.mat
+      - B0032.mat
+    inspection_method: >
+      Programmatic inspection of raw data structures using Python
+      (scipy.io.loadmat), focusing on cycle organization, operation
+      types, and available measurement fields.
+
+  scope:
+    dataset_subset: NASA PCoE BatteryAging ARC 29–32
+    data_granularity_levels:
+      - cycle_level
+      - measurement_level
+      - impedance_level
+    operation_types:
+      - charge
+      - discharge
+      - impedance
+
+  tables:
+
+    cycles:
+      description: >
+        Cycle-level table describing each experimental cycle and its
+        associated contextual information.
+      primary_key:
+        - cell_id
+        - cycle_index
+      columns:
+        cell_id:
+          dtype: string
+          description: Battery identifier (e.g., B0029–B0032).
+          source: top-level MATLAB struct name
+        cycle_index:
+          dtype: integer
+          description: Index of the cycle within the raw cycle array.
+          source: array index
+        operation_type:
+          dtype: string
+          allowed_values: [charge, discharge, impedance]
+          description: Experimental operation type of the cycle.
+          source: cycle.type
+        ambient_temperature_C:
+          dtype: float
+          description: Ambient temperature during the cycle.
+          source: cycle.ambient_temperature
+        cycle_time:
+          dtype: float
+          description: >
+            Cycle-level temporal information as provided in the raw data.
+            Exact temporal semantics are defined during data transformation.
+          source: cycle.time
+
+    measurements:
+      description: >
+        Time-series measurement table for charge and discharge operations.
+      primary_key:
+        - cell_id
+        - cycle_index
+        - operation_type
+        - t_index
+      constraints:
+        operation_type_allowed: [charge, discharge]
+      columns:
+        cell_id:
+          dtype: string
+          source: top-level MATLAB struct name
+        cycle_index:
+          dtype: integer
+          source: array index
+        operation_type:
+          dtype: string
+          source: cycle.type
+        t_index:
+          dtype: integer
+          description: Index within the measurement time series.
+        time_s:
+          dtype: float
+          description: Time axis of the measurement series.
+          source: data.Time
+        voltage_measured_V:
+          dtype: float
+          source: data.Voltage_measured
+        current_measured_A:
+          dtype: float
+          source: data.Current_measured
+        temperature_measured_C:
+          dtype: float
+          source: data.Temperature_measured
+        current_charge_A:
+          dtype: float
+          nullable: true
+          description: Charge current (charge cycles only).
+          source: data.Current_charge
+        voltage_charge_V:
+          dtype: float
+          nullable: true
+          description: Charge voltage (charge cycles only).
+          source: data.Voltage_charge
+        current_load_A:
+          dtype: float
+          nullable: true
+          description: Load current (discharge cycles only).
+          source: data.Current_load
+        voltage_load_V:
+          dtype: float
+          nullable: true
+          description: Load voltage (discharge cycles only).
+          source: data.Voltage_load
+        capacity_Ah:
+          dtype: float
+          nullable: true
+          description: Discharge capacity reported per cycle.
+          source: data.Capacity
+
+    impedance:
+      description: >
+        Frequency-domain electrochemical impedance spectroscopy (EIS) table.
+      primary_key:
+        - cell_id
+        - cycle_index
+        - f_index
+      constraints:
+        operation_type_required: impedance
+      columns:
+        cell_id:
+          dtype: string
+          source: top-level MATLAB struct name
+        cycle_index:
+          dtype: integer
+          source: array index
+        f_index:
+          dtype: integer
+          description: Index within the impedance frequency series.
+        sense_current:
+          dtype: complex
+          source: data.Sense_current
+        battery_current:
+          dtype: complex
+          source: data.Battery_current
+        current_ratio:
+          dtype: complex
+          source: data.Current_ratio
+        battery_impedance:
+          dtype: complex
+          source: data.Battery_impedance
+        rectified_impedance:
+          dtype: complex
+          source: data.Rectified_Impedance
+        Re_ohm:
+          dtype: float
+          description: Ohmic resistance.
+          source: data.Re
+        Rct_ohm:
+          dtype: float
+          description: Charge transfer resistance.
+          source: data.Rct
+
+  notes:
+    - This file defines structural schemas only and contains no experimental data.
+    - Units, ontological mappings, and FAIR metadata are defined in subsequent stages.
