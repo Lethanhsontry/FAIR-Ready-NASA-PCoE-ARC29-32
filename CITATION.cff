@@ -4,11 +4,7 @@ message: "If you use this FAIR-ready curation (scripts, metadata, and documentat
 title: "FAIR-Ready Lithium-Ion Battery Aging Dataset (NASA PCoE ARC 29–32)"
 
 authors:
-  - family-names: Le
-    given-names: Thanh Son
-    roles:
-      authors:
-  - family-names: Le
+    - family-names: Le
     given-names: Thanh Son
     roles:
       - author
